@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CALCULATOR</title>
+    <link rel="stylesheet" href="style.css" />
+    <script href="main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- This input box shows the button pressed by the user in calculator. -->
+      <input type="text" placeholder="0" id="result" />
+
+      <div class="buttons">
+        <!-- onclick() function displays the number clicked by the user. -->
+        <!-- display() Display the calculator button on the screen. -->
+
+        <button class="btn" type="button" onclick="Clear()">AC</button>
+        <button class="btn" type="button" onclick="Del()">Del</button>
+        <button class="btn" type="button" onclick="display('%')">%</button>
+        <button class="btn" type="button" onclick="display('/')">/</button>
+        <button class="btn" type="button" onclick="display('7')">7</button>
+        <button class="btn" type="button" onclick="display('8')">8</button>
+        <button class="btn" type="button" onclick="display('9')">9</button>
+        <button class="btn" type="button" onclick="display('*')">*</button>
+        <button class="btn" type="button" onclick="display('4')">4</button>
+        <button class="btn" type="button" onclick="display('5')">5</button>
+        <button class="btn" type="button" onclick="display('6')">6</button>
+        <button class="btn" type="button" onclick="display('-')">-</button>
+        <button class="btn" type="button" onclick="display('1')">1</button>
+        <button class="btn" type="button" onclick="display('2')">2</button>
+        <button class="btn" type="button" onclick="display('3')">3</button>
+        <button class="btn" type="button" onclick="display('+')">+</button>
+        <button class="btn" type="button" onclick="display('.')">.</button>
+        <button class="btn" type="button" onclick="display('0')">0</button>
+        <button class="btn" type="button" onclick="Calculate()" id="equal">
+          =
+        </button>
+      </div>
+    </div>
+
+    <!--Javascript internal file-->
+    <script>
+      let result = document.getElementById("result");
+
+      function display(num) {
+        result.value += num;
+      }
+      function Calculate() {
+        try {
+          result.value = eval(result.value);
+        } catch (err) {
+          alert("Invalid");
+        }
+      }
+      function Clear() {
+        result.value = " ";
+      }
+      function Del() {
+        result.value = result.value.slice(0, -1);
+      }
+    </script>
+  </body>
+</html>
